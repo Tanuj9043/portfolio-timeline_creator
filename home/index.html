@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PortFolio Timeline</title>
+	<link rel="icon" href="icon.ico" type="image/png">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<!--<link rel="stylesheet" type="text/css" href="style.css">-->
+	<style>
+		nav{
+			padding: 5px !important;
+			background-color: floralwhite;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		.fixed-top{
+			z-index: 1600;
+		}
+		button{
+			cursor: pointer;
+		}
+		nav, #overview, #contact, .userform{
+			z-index: 1500;
+			position: relative;
+		}
+		#contact{
+			box-shadow: 0 0px 8px 5px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		.userform{
+			background-color: white;
+			margin-top: 6rem! important;
+			box-shadow: 0 0px 8px 5px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		#contact{
+			background-color: black;
+		}
+		.navbar-nav{
+			flex-direction: row;
+		}
+		.mainMenu{
+			list-style: none;
+		}
+		.mainMenu > li{
+			font-family: 'Quicksand', sans-serif;
+			border-bottom: 3px solid floralwhite;
+			display: inline;
+			margin-right: 20px;
+		}
+		.mainMenu > li > p{
+			border-bottom: 3px solid floralwhite;
+		}
+		.nav-link{
+			font-weight: bold;
+			border-bottom: 3px solid floralwhite;
+		}
+		.nav-link:hover{
+			border-bottom: 3px solid #44b2e2;
+			transition: border-bottom 1s;
+		}
+
+		.heading{
+			font-family: 'Quicksand', sans-serif;
+			font-weight: bold;
+			color: crimson;
+			font-size: 1.25rem;
+		}
+		.subhead{
+			font-family: 'Quicksand', sans-serif;
+			color: darkgray;
+			font-size: 0.7rem;
+		}
+		.badge{
+			box-shadow: 0 0px 8px 1px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		.badge:hover{
+			box-shadow: 0 0px 8px 3px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			transition: box-shadow 0.2s;
+		}
+		.form-control{
+			font-family: 'Raleway', sans-serif;
+		}
+
+		#timeline{
+			list-style: none;
+		}
+
+		.bottom1{
+			width: 60%;
+		}
+		.bottom2{
+			width: 40%;
+		}
+		.bottom1text, .copytext{
+			font-family: 'Raleway', sans-serif;
+			font-size: 0.4rem;
+		}
+		.bottom1head{
+			font-family: 'Quicksand', sans-serif;
+			font-size: 1rem;
+		}
+		.bottom2head, .bottom2text{
+			font-family: 'Quicksand', sans-serif;
+			font-size: 1rem;
+		}
+
+		.ubtn, .dbtn{
+			position: relative;
+			width: 30px;
+			height: 30px;
+			background-color: darksalmon;
+			cursor: pointer;
+		}
+
+		.ubtn:before{
+			content: "";
+		    position: absolute;
+		    width: 20px;
+		    height: 20px;
+		    background: cornflowerblue;
+		    transform: rotate(45deg); /* Prefixes... */
+		    top: 20px;
+		    right: 5.5px;
+		    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
+		}
+		.dbtn:before{
+			content: "";
+		    position: absolute;
+		    width: 20px;
+		    height: 20px;
+		    background: cornflowerblue;
+		    transform: rotate(45deg); /* Prefixes... */
+		    bottom: 20px;
+		    right: 5.5px;
+		    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
+		}
+		.ubtn:hover , .dbtn:hover{
+			background-color: salmon;
+			transition: background-color 0.3s;
+		}
+		.ubtn{
+			clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+		}
+		.dbtn{
+			clip-path: polygon(50% 100%, 0 0, 100% 0);
+		}
+		@media only screen and (min-width: 420px){
+			.heading{
+				font-size: 1.5rem;
+			}
+			.subhead{
+				font-size: 0.8rem;
+			}
+			.ubtn, .dbtn{
+				width: 35px;
+				height: 35px;
+			}
+			.ubtn:before{
+				width: 25px;
+				height: 25px;
+				top: 22px;
+			}
+			.dbtn:before{
+				width: 25px;
+				height: 25px;
+				bottom: 22px;
+			}
+			.bottom1text, .copytext{
+				font-size: 0.6rem;
+			}
+			.bottom1head{
+				font-size: 1.2rem;
+			}
+			.bottom2head, .bottom2text{
+				font-size: 1.25rem;
+			}
+			.bottom2text > span{
+				margin-right: 2px;
+			}
+		}
+		@media only screen and (min-width: 768px){
+			.navbar-nav{
+				flex-direction: column;
+			}
+			.heading{
+				font-size: 2rem;
+			}
+			.subhead{
+				font-size: 1rem;
+			}
+			.mainMenu{
+				float: right !important;
+			}
+			.mainMenu > li{
+				font-size: 1.1rem;
+			}
+			.ubtn, .dbtn{
+				width: 40px;
+				height: 40px;
+			}
+			.ubtn, .dbtn{
+				width: 40px;
+				height: 40px;
+			}
+			.ubtn:before{
+				width: 30px;
+				height: 30px;
+				top: 25px;
+			}
+			.bottom1text, .copytext{
+				font-size: 0.80rem;
+			}
+			.bottom1head{
+				font-size: 1.4rem;
+			}
+			.bottom2head, .bottom2text{
+				font-size: 1.5rem;
+			}
+			.bottom2text > span{
+				margin-right: 10px;
+			}
+		}
+		@media only screen and (min-width: 1020px){
+			.mainMenu > li{
+				font-size: 1.2rem;
+			}
+			.heading{
+				font-size: 2.5rem;
+			}
+			.subhead{
+				font-size: 1.5rem;
+			}
+			.ubtn, .dbtn{
+				width: 45px;
+				height: 45px;
+			}
+			.ubtn:before{
+				width: 30px;
+				height: 30px;
+				top: 29px;
+				right: 7px;
+			}
+			.dbtn:before{
+				width: 30px;
+				height: 30px;
+				bottom: 29px;
+				right: 7px;
+			}
+			.bottom1text, .copytext{
+				font-size: 1rem;
+			}
+			.bottom1head{
+				font-size: 1.65rem;
+			}
+			.bottom2head, .bottom2text{
+				font-size: 2rem;
+			}
+			.bottom2text > span{
+				margin-right: 20px;
+			}
+		}
+  	</style>
+</head>
+<body style="background-color: brown;">
+	<nav class="navbar fixed-top navbar-expand-md navbar-light">
+		<a class="navbar-brand" href="/" style="margin-left: 5px; padding: 0px;">
+	  		<img src="webname.png" class="img-fluid" alt="Responsive image">
+	  	</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+  		<div class="collapse navbar-collapse" id="navbarNav">
+  			<div class="container-fluid">
+		   		<ul class="navbar-nav mainMenu float-left">
+		      		<li class="nav-item d-flex">
+		        		<p style="margin: auto;">Welcome&nbsp;</p>
+		        		<a class="nav-link" href="#" onclick="scrollto('navbarNav')" id="topname"></a>
+		      		</li>
+		    	</ul>
+	    	</div>
+  		</div>
+	</nav>
+	<div class="container pt-4 userform">
+		<div class="container mb-3 pb-3">
+			<label for="toptext" class="display-4 mb-1 heading">Enquoted Text</label>
+	    	<input type="text" class="form-control" id="toptext" style="font-weight: bold;" aria-describedby="topText" placeholder="Enter text that you want on top" size="32">
+			<p class="h5 mt-1 subhead" id="quotename"></p>
+		</div>
+		<div class="container mt-3 pt-3 mb-3 pb-3">
+			<p class="display-4 mb-0 heading">About Me</p>
+			<input type="text" class="form-control" id="fbaboutme" style="font-weight: bold;"  placeholder="Your facebook's about-me">
+   	 		<textarea class="form-control" id="aboutme" rows="4" placeholder="Enter something about yourself"></textarea>
+		</div>
+		<div class="container mt-3 pt-3 mb-3 pb-3">
+			<p class="display-4 mb-0 heading">Timeline</p>
+			<div class="container-fluid mt-2 mb-2">
+				<ul class="container-fluid px-0 mt-2 mb-2" id="timeline">
+					<!-- <li class="container-fluid px-0 mt-3 mb-3 d-flex">
+						<div class="container-fluid px-0 mx-2" style="width: 10%; margin: auto;">
+							<div class="container-fluid mb-1 ubtn" id="ubtn0"></div>
+							<div class="container-fluid mt-1 dbtn" id="dbtn0"></div>
+						</div>
+						<div class="container-fluid px-0" style="width: 90%;">
+							<input type="text" class="form-control" id="tlhead0" placeholder="Heading">
+							<input type="text" class="form-control" id="tltime0" placeholder="Duration or subheading">
+	   	 					<textarea class="form-control" id="tlabout0" rows="3" placeholder="Something about it"></textarea>
+	   	 				</div>
+					</li> -->
+				</ul>
+			</div>
+			<div class="container-fluid mt-3">
+				<span class="badge badge-pill badge-danger" onclick="addtimeline()" style="font-size: 1rem; cursor: pointer;">
+					<i class="fa fa-plus" aria-hidden="true"></i> Add
+				</span>
+			</div>
+		</div>
+		<div class="container mt-3 pt-3 mb-3 pb-3">
+			<label for="endnote" class="display-4 mb-1 heading">End Note</label>
+	    	<textarea class="form-control" id="endnote" rows="4" placeholder="Enter end note"></textarea>
+	    	<input type="email" class="form-control" id="email" style="font-weight: bold;" placeholder="Email id">
+	    	<p class="h5 mt-1 subhead">Thank You!</p>
+		</div>
+		<div class="container mt-3 mb-3 pt-2 pb-4 text-center">
+			<button type="button" class="btn btn-outline-danger" id="btn">Create Webpage</button>
+		</div>
+	</div>
+	<div class="container-fluid d-flex mt-5 pt-5" id="contact">
+		<div class="container bottom1 m-auto">
+			<p class="card-text h3 bottom1head" style="color: gray;">Check out my other projects from my Github profile</p>
+			<p class="h6 bottom1text">You can also checkout my portfolio from my profile. Hope you had
+				a wonderful experience. Share with your friends and feel free to mail me any suggestions you have. Thanks for visiting.</p>
+		</div>
+		<div class="container bottom2">
+			<div class="container-fluid text-center" style="padding: 0px">
+				<p class="card-text h2 bottom2head" style="color: gray; font-weight: bold;">Contact Me</p>
+				<div class="container-fluid bottom2text" style="padding: 0px;">
+					<span>
+						<a href="https://github.com/Tanuj9043" target="_blank"><i class="fa fa-github" style="color: darkgray;" aria-hidden="true"></i></a>
+					</span>
+					<span>
+						<a href="https://plus.google.com/u/0/106379005681261887409" target="_blank"><i class="fa fa-google-plus" style="color: red;" aria-hidden="true"></i></a>
+					</span>
+					<span>
+						<a href="https://www.facebook.com/tanuj.drall.712" target="_blank"><i class="fa fa-facebook-official" style="color: darkblue;" aria-hidden="true"></i></a>
+					</span>
+				</div>
+			</div>
+			<p class="backquote-footer text-right mt-4 pt-4 copytext" style="color: gray;">&copy; Copyrights 2017 reserved - Tanuj</p>
+		</div>
+	</div>
+	<script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="javascript.js"></script>
+</body>
+</html>
