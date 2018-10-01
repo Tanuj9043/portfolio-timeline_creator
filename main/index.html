@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PortFolio Timeline</title>
+	<link rel="icon" href="icon.ico" type="image/png">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<!--<link rel="stylesheet" type="text/css" href="style.css">-->
+	<style>
+		nav{
+			padding: 5px !important;
+			background-color: floralwhite;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		.fixed-top{
+			z-index: 1600;
+		}
+		button{
+			cursor: pointer;
+		}
+		nav, #overview, #about, #examples, #contact{
+			z-index: 1500;
+			position: relative;
+		}
+		.back{
+			position: absolute;
+			height: 200px;
+			width: 100%;
+		}
+		.one, .two, .three, .four{
+			height: 100%;
+   			width: 100%;
+			background-color: crimson;
+		}
+		.welhead{
+			color : crimson;
+			font-family: 'Quicksand', sans-serif;
+		}
+		.back > .one{
+   			clip-path: polygon(0 0, 0 0, 100% 100%, 0 100%);
+		}
+		.back > .two{
+   			clip-path: polygon(0 0, 100% 0%, 100% 0, 50% 100%);
+		}
+		.back > .three{
+   			clip-path: polygon(50% 0, 100% 100%, 0 100%, 50% 0);
+		}
+		.back > .four{
+   			clip-path: polygon(100% 0, 100% 100%, 0 0, 0 0);
+		}
+		#carouselIndicators, .welcome, #contact{
+			box-shadow: 0 0px 8px 5px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		#contact{
+			background-color: black;
+		}
+		.navbar-nav{
+			flex-direction: row;
+		}
+		.mainMenu{
+			list-style: none;
+		}
+		.mainMenu > li{
+			font-family: 'Quicksand', sans-serif;
+			border-bottom: 3px solid floralwhite;
+			display: inline;
+			margin-right: 20px;
+		}
+		.mainMenu > li:hover{
+			border-bottom: 3px solid #44b2e2;
+			transition: border-bottom 1s;
+		}
+		.caroimg{
+			height: inherit;
+		}
+		.caro {
+			height: 300px;
+		}
+		.bottom1{
+			width: 60%;
+		}
+		.bottom2{
+			width: 40%;
+		}
+		.bottom1text, .copytext{
+			font-family: 'Raleway', sans-serif;
+			font-size: 0.4rem;
+		}
+		.bottom1head{
+			font-family: 'Quicksand', sans-serif;
+			font-size: 1rem;
+		}
+		.bottom2head, .bottom2text{
+			font-family: 'Quicksand', sans-serif;
+			font-size: 1rem;
+		}
+		@media only screen and (min-width: 420px){
+			.back{
+				height: 250px;
+			}
+			.caro {
+				height: 400px;
+			}
+			.welhead{
+				font-size: 1.85rem;
+			}
+			.bottom1text, .copytext{
+				font-size: 0.6rem;
+			}
+			.bottom1head{
+				font-size: 1.2rem;
+			}
+			.bottom2head, .bottom2text{
+				font-size: 1.25rem;
+			}
+			.bottom2text > span{
+				margin-right: 2px;
+			}
+		}
+		@media only screen and (min-width: 768px){
+			.back{
+				height: 300px;
+			}
+			.navbar-nav{
+				flex-direction: column;
+			}
+			.mainMenu{
+				float: right !important;
+			}
+			.mainMenu > li{
+				font-size: 1.1rem;
+			}
+			.caro {
+				height: 500px;
+			}
+			.welhead{
+				font-size: 2rem;
+			}
+			.bottom1text, .copytext{
+				font-size: 0.80rem;
+			}
+			.bottom1head{
+				font-size: 1.4rem;
+			}
+			.bottom2head, .bottom2text{
+				font-size: 1.5rem;
+			}
+			.bottom2text > span{
+				margin-right: 10px;
+			}
+		}
+		@media only screen and (min-width: 1020px){
+			.back{
+				height: 400px;
+			}
+			.mainMenu > li{
+				font-size: 1.2rem;
+			}
+			.caro {
+				height: 600px;
+			}
+			.welhead{
+				font-size: 2.5rem;
+			}
+			.bottom1text, .copytext{
+				font-size: 1rem;
+			}
+			.bottom1head{
+				font-size: 1.65rem;
+			}
+			.bottom2head, .bottom2text{
+				font-size: 2rem;
+			}
+			.bottom2text > span{
+				margin-right: 20px;
+			}
+		}
+  	</style>
+</head>
+<body>
+	<nav class="navbar fixed-top navbar-expand-md navbar-light">
+		<a class="navbar-brand" href="#" style="margin-left: 5px; padding: 0px;">
+	  		<img src="webname.png" class="img-fluid" alt="Responsive image">
+	  	</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+  		<div class="collapse navbar-collapse" id="navbarNav">
+  			<div class="container-fluid">
+		   		<ul class="navbar-nav mainMenu float-left">
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="#" onclick="scrollto('overview')">Overview</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="#" onclick="scrollto('about')">About</a>
+		      		</li>
+		      		<!--<li class="nav-item">
+		        		<a class="nav-link" href="#" onclick="scrollto('examples')">Examples</a>
+		      		</li>-->
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="#" onclick="scrollto('contact')">Contact</a>
+		      		</li>
+		    	</ul>
+	    	</div>
+  		</div>
+	</nav>
+	<div class="back">
+		<div class="one"></div>
+		<div class="two"></div>
+		<div class="three"></div>
+		<div class="four"></div>
+	</div>
+	<div class="container mt-5 pt-5 mb-5 pb-5" id="overview">
+		<div class="card text-center welcome" style="border: 0px solid;">
+			<img class="card-img-top img-fluid" src="welcome.png" alt="Card image cap">
+			<div class="container-fluid">
+				<div class="card-body cbody1" id="cb1" style="padding: 7px;">
+				    <h3 class="card-title welhead" style="font-weight: bold;">PORTFOLIO CREATOR</h3>
+				    <p class="card-text" style="color: gray; font-family: 'Raleway', sans-serif;">PortfolioTimeline lets you build your own online portfolio. You can manage the data you want on your webpage.</p>
+				    <button type="button" class="btn btn-danger" id="obtn">Get Started</button>
+				</div>
+				<div class="card-body cbody2" id="cb2" style="padding: 7px; display: none;">
+				    <h3 class="card-title welhead" style="font-weight: bold;">LOGIN or MANUAL</h3>
+				    <p class="card-text" style="color: gray; font-family: 'Raleway', sans-serif;">We will be using your facebook data to get your profile, education and work details. You can also use the manual mode.</p>
+				    <a href="/authorize" class="btn btn-primary mt-1"><i class="fa fa-facebook-official" style="color: white;" aria-hidden="true"></i> Continue with Facebook</a>
+				    <a href="/manual" class="btn btn-primary mt-1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Manual Mode</a>
+				    <button type="button" class="btn btn-secondary mt-1" id="cbtn"><i class="fa fa-times" aria-hidden="true"></i> Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid mt-5 pt-5 mb-5 pb-5" id="about">
+		<div id="carouselIndicators" class="carousel slide" data-ride="carousel" data-interval="3500">
+			<ol class="carousel-indicators">
+				<li data-target="#caroIndicators" data-slide-to="0" class="active"></li>
+				<li data-target="#caroIndicators" data-slide-to="1"></li>
+				<li data-target="#caroIndicators" data-slide-to="2"></li>
+				<li data-target="#caroIndicators" data-slide-to="3"></li>
+			</ol>
+			<div class="carousel-inner caro">
+				<div class="carousel-item active" style="height:inherit">
+					<img class="caroimg d-block w-100 img-fluid" src="one.png" alt="First slide">
+					<div class="carousel-caption d-none d-md-block text-dark">
+						<h2 style="font-weight: bold; font-family: 'Quicksand', sans-serif;">TREND</h2>
+						<p style="font-weight: bold; font-family: 'Raleway', sans-serif;">Get what is trending!</p>
+					</div>
+				</div>
+				<div class="carousel-item" style="height:inherit">
+					<img class="caroimg d-block w-100 img-fluid" src="two.png" alt="Second slide">
+					<div class="carousel-caption d-none d-md-block text-dark">
+						<h2 style="font-weight: bold; font-family: 'Quicksand', sans-serif;">DATA</h2>
+						<p style="font-weight: bold; font-family: 'Raleway', sans-serif;">Recieving data from your facrbook account!</p>
+					</div>
+				</div>
+				<div class="carousel-item" style="height:inherit">
+					<img class="caroimg d-block w-100 img-fluid" src="three.png" alt="Third slide">
+					<div class="carousel-caption d-none d-md-block text-dark">
+						<h2 style="font-weight: bold; font-family: 'Quicksand', sans-serif;">SECURE</h2>
+						<p style="font-weight: bold; font-family: 'Raleway', sans-serif;">All your personal data is secure!</p>
+					</div>
+				</div>
+				<div class="carousel-item" style="height:inherit">
+					<img class="caroimg d-block w-100 img-fluid" src="four.png" alt="Fourth slide">
+					<div class="carousel-caption d-none d-md-block text-dark">
+						<h2 style="font-weight: bold; font-family: 'Quicksand', sans-serif;">RESPONSIVE</h2>
+						<p style="font-weight: bold; font-family: 'Raleway', sans-serif;">Works on all devices!</p>
+					</div>
+				</div>
+		  </div>
+			<a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+	<div class="container-fluid d-flex mt-5 pt-5" id="contact">
+		<div class="container bottom1 m-auto">
+			<p class="card-text h3 bottom1head" style="color: gray;">Check out my other projects from my Github profile</p>
+			<p class="h6 bottom1text">You can also checkout my portfolio from my profile. Hope you had
+				a wonderful experience. Share with your friends and feel free to mail me any suggestions you have. Thanks for visiting.</p>
+		</div>
+		<div class="container bottom2">
+			<div class="container-fluid text-center" style="padding: 0px">
+				<p class="card-text h2 bottom2head" style="color: gray; font-weight: bold;">Contact Me</p>
+				<div class="container-fluid bottom2text" style="padding: 0px; padding-left: 5%;">
+					<span>
+						<a href="https://github.com/Tanuj9043" target="_blank"><i class="fa fa-github" style="color: darkgray;" aria-hidden="true"></i></a>
+					</span>
+					<span>
+						<a href="https://plus.google.com/u/0/106379005681261887409" target="_blank"><i class="fa fa-google-plus" style="color: red;" aria-hidden="true"></i></a>
+					</span>
+					<span>
+						<a href="https://www.facebook.com/tanuj.drall.712" target="_blank"><i class="fa fa-facebook-official" style="color: darkblue;" aria-hidden="true"></i></a>
+					</span>
+				</div>
+			</div>
+			<p class="backquote-footer text-right mt-4 pt-4 copytext" style="color: gray;">&copy; Copyrights 2017 reserved - Tanuj</p>
+		</div>
+	</div>
+	<script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="javascript.js"></script>
+</body>
+</html>
