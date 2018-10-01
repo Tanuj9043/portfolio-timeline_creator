@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PortFolio Timeline</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<style>
+		nav{
+			position: relative;
+			padding: 5px !important;
+			background-color: floralwhite;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		button{
+			cursor: pointer;
+		}
+		.mainMenu{
+			max-width: 400px;
+			list-style: none;
+		}
+		.mainMenu > li{
+			font-family: 'Quicksand', sans-serif;
+			border-bottom: 3px solid floralwhite;
+			display: inline;
+			margin-right: 20px;
+		}
+		.mainMenu > li:hover{
+			border-bottom: 3px solid orange;
+			transition: border-bottom 1s;
+		}
+		.fixed-top{
+			z-index: 1600;
+		}
+		.tophead{
+			font-family: 'Raleway', sans-serif;
+			font-weight: bold;
+			color: darkgray;
+			font-size: 2.5rem;
+		}
+		.toptext{
+			font-family: 'Quicksand', sans-serif;
+			color: white;
+			font-size: 1rem;
+		}
+		.heading{
+			font-family: 'Quicksand', sans-serif;
+			font-weight: bold;
+			color: orange;
+			font-size: 1.5rem;
+		}
+		.subhead{
+			font-family: 'Quicksand', sans-serif;
+			color: darkgray;
+			font-size: 0.9rem;
+		}
+		.text{
+			font-family: 'Raleway', sans-serif;
+			color: gray;
+			font-size: 0.75rem;
+		}
+		.dot{
+			font-size: 2rem;
+			width: 35%;
+		}
+		.listitem, .dot{
+			position: relative;
+		}
+		.listitem::before{
+			position: absolute;
+		    top: 6px;
+		    left: -20px;
+    		right: auto;
+		    display: inline-block;
+		    border-top: 17px solid transparent;
+		    border-left: 17px solid #ccc;
+		    border-right: 0 solid lightgray;
+		    border-bottom: 17px solid transparent;
+		    content: " ";
+		    border-left-width: 0;
+    		border-right-width: 17px;
+		}
+		.tilehead{
+			font-weight: bold;
+			font-size: 1.2rem;
+			color: cornflowerblue;
+			font-family: 'Quicksand', sans-serif;
+		}
+		.timeline::before{
+			position: absolute;
+			height: 100%;
+		    top: 3px;
+		    left: 42px;
+		    display: inline-block;
+		    width: 3px;
+		    background-color: darkgray;
+		    content: " ";
+		}
+		#about, #timeline, #endnote{
+			box-shadow: 0 0px 8px 5px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		.listitem{
+			background-color: white;
+			border-radius: 0.5rem;
+			box-shadow: 0 0px 8px 1px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19)
+		}
+		.timeline{
+			position: relative;
+			list-style: none;
+		}
+		.cont{
+			font-weight: bold;
+			font-size: 1.25rem;
+			color: cornflowerblue;
+			font-family: 'Quicksand', sans-serif;
+		}
+		@media only screen and (min-width: 420px){
+			.tophead{
+				font-size: 3.5rem;
+			}
+			.toptext{
+				font-size: 1.25rem;
+			}
+			.heading{
+				font-size: 2rem;
+			}
+			.subhead{
+				font-size: 1rem;
+			}
+			.titlehead{
+				font-size: 1.35rem;
+			}
+			.text{
+				font-size: 0.8rem;
+			}
+			.dot{
+				font-size: 2.25rem;
+				width: 28%;
+			}
+			.timeline::before{
+				left : 44px;
+			}
+			.listitem::before{
+				top: 9px;
+			}
+			.cont{
+				font-size: 1.5rem;
+			}
+		}
+		@media only screen and (min-width: 768px){
+			.mainMenu > li{
+				font-size: 1.1rem;
+			}
+			.tophead{
+				font-size: 4.5rem;
+			}
+			.toptext{
+				font-size: 1.50rem;
+			}
+			.heading{
+				font-size: 2.5rem;
+			}
+			.subhead{
+				font-size: 1.15rem;
+			}
+			.titlehead{
+				font-size: 1.5rem;
+			}
+			.text{
+				font-size: 0.9rem;
+			}
+			.dot{
+				font-size: 2.5rem;
+				width: 12%;
+			}
+			.timeline::before{
+				left: 45px;
+			}
+			.listitem::before{
+				top: 12px;
+			}
+			.cont{
+				font-size: 1.65rem;
+			}
+		}
+		@media only screen and (min-width: 1020px){
+			.mainMenu > li{
+				font-size: 1.2rem;
+			}
+			.tophead{
+				font-size: 5.5rem;
+			}
+			.toptext{
+				font-size: 1.75rem;
+			}
+			.heading{
+				font-size: 3rem;
+			}
+			.subhead{
+				font-size: 1.25rem;
+			}
+			.titlehead{
+				font-size: 1.65rem;
+			}
+			.text{
+				font-size: 1rem;
+			}
+			.dot{
+				font-size: 3rem;
+				width: 10%;
+			}
+			.timeline::before{
+				left: 49px;
+			}
+			.listitem::before{
+				top: 16px;
+			}
+			.cont{
+				font-size: 1.85rem;
+			}
+		}
+  	</style>
+</head>
+<body style="background-color: black">
+	<nav class="navbar fixed-top navbar-expand-sm navbar-light">
+		<button class="navbar-toggler float-right" style="max-width: 100px; margin-left: auto;" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+  		<div class="collapse navbar-collapse" id="navbarNav">
+	   		<ul class="navbar-nav m-auto mainMenu">
+	      		<li class="nav-item">
+	        		<a class="nav-link" href="#" onclick="scrollto('about')">About</a>
+	      		</li>
+	      		<li class="nav-item">
+	        		<a class="nav-link" href="#" onclick="scrollto('timeline')">Timeline</a>
+	      		</li>
+	      		<li class="nav-item">
+	     		<a class="nav-link" href="#" onclick="scrollto('endnote')">Endnote</a>
+		   		</li>
+		    </ul>
+  		</div>
+	</nav>
+	<div class="container-fluid text-center mt-5 pt-4 mb-2 pb-2">
+		<h1 class="display-2 tophead" id="quote"></h1>
+		<p class="h3 toptext" id="name"></p>
+	</div>
+	<div class="container mt-4 pt-4 mb-2 pb-2" id="about" style="background-color: white">
+		<p class="display-4 mb-0 heading">About Me</p>
+		<p class="h5 subhead" id="fbaboutme"></p>
+		<p class="h6 text mt-3" id="aboutme"></p>
+	</div>
+	<div class="container mt-4 pt-4 mb-3 pb-3" id="timeline">
+		<p class="display-4 mb-0 text-center heading" style="color: orange;">Timeline</p>
+		<div class="container-fluid p-3 mt-4 d-flex">
+			<ul class="container-fluid timeline m-3" id="timelist">
+				<!-- <li class="container mt-5 pt-2 pb-2 mb-5 d-flex">
+					<div class="container-fluid p-0 dot">
+						<i class="fa fa-circle" style="color: #5bc0de" aria-hidden="true"></i>
+					</div>
+					<div class="container-fluid p-2 listitem">
+						<p class="h4 mb-1 tilehead">Kindergarden</p>
+						<p class="h5 subhead mb-4">2002-2004</p>
+						<p class="h6 text">I was a smart kid there among all of them.</p>
+					</div>
+				</li> -->
+			</ul>
+		</div>
+	</div>
+	<div class="container mt-4 pt-4 mb-3 pb-3" id="endnote" style="background-color: white">
+		<p class="display-4 mb-0 heading"  style="color: orange;">End Note</p>
+		<p class="h6 text mt-3"  style="color: darkgray;" id="end"></p>
+		<p class="h6 text"  style="color: darkgray;">
+			You can contact me on my email address : <span style="font-weight: bold" id="email"></span>
+		</p>
+		<p class="h5 subhead" style="color: gray;">Thank you!</p>
+	</div>
+	<a href="/download" download="index" id="down" style="display: none"></a>
+	<script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	<script>
+		function scrollto(id) {
+			$('html, body').stop().animate({
+        		scrollTop: $('#'+id).offset().top-70
+   			}, 500);
+		}
+	</script>
+	<script type="text/javascript" src="javascript.js"></script>
+</body>
+</html>
